@@ -1,0 +1,3 @@
+interface:
+  display_name: "风格包创建与校准"
+  short_description: "分析参考图、讲解画风并校准样图，保存可跨项目复用的风格包"

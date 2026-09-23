@@ -1,0 +1,4 @@
+interface:
+  display_name: "3D 风格包"
+  short_description: "分析截图与设计参考，通过真实三维校准建立可跨项目复用的风格包"
+  default_prompt: "使用 $model-style-pack 分析我的参考图，讲解并确认风格，再用 Blender 校准和保存可复用的 3D Style Pack。"

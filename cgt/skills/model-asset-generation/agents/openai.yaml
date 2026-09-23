@@ -1,0 +1,4 @@
+interface:
+  display_name: "3D 模型制作"
+  short_description: "按风格包补齐需求，用 Blender 制作模型并在目标引擎中验证交付"
+  default_prompt: "使用 $model-asset-generation 读取指定的 3D Style Pack，补齐本次模型需求，用 Blender 制作并完成目标引擎验证。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "需求发现与澄清"
+  short_description: "挖掘真实问题，并澄清范围、假设、约束条件与验收标准"
+  default_prompt: "Use $requirements-discovery to uncover the underlying problem and turn it into clear, testable requirements."
