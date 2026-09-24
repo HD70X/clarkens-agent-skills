@@ -26,10 +26,10 @@ agent-skills/
 
 ## 跨设备同步
 
-将仓库推送到自己的 Git 远程地址后，在其他设备执行：
+在其他设备登录有访问权限的 GitHub 账号后执行：
 
 ```sh
-git clone <仓库地址> agent-skills
+git clone https://github.com/HD70X/agent-skills.git agent-skills
 cd agent-skills
 ```
 
@@ -49,5 +49,3 @@ git push
 - Claude 的 `.skill` 文件为现有安装包；修改 `claude/skills/` 后，应重新打包并更新对应安装包，保持二者一致。
 - 本仓库不包含账户凭证、应用配置或其他项目素材。
 - 原项目中的 `skills/`、`claude/` 和 `.claude/skills/` 已通过相对符号链接指向本仓库，保持原路径可用。这些兼容链接在仓库外，不随克隆迁移。
-
-所有 skill 内容保持整理前的版本。

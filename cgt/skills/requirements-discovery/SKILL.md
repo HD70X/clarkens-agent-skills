@@ -1,6 +1,6 @@
 ---
 name: requirements-discovery
-description: Uncover the real problem behind a vague idea, complaint, product concept, or solution-shaped request and turn it into clear, evidence-aware, testable requirements. Use for problem discovery, discovery interviews, 需求挖掘、需求澄清、需求细化, product or feature clarification, PRD gap analysis, scope clarification, assumption checking, or acceptance-criteria definition. Do not use for straightforward implementation when requirements and validators are already clear, or for a general architecture or plan risk review that does not need requirements discovery.
+description: "澄清模糊想法或产品需求，审查 PRD 缺口，形成可验证的需求与验收标准。用于需求发现、访谈与梳理；需求已明确的直接实现或纯技术评审不适用。"
 ---
 
 # Requirements Discovery
@@ -39,9 +39,9 @@ Update this map after meaningful new information. Show a compact snapshot when i
 
 1. Establish the decision to be enabled: what the user needs to decide, approve, build, test, or learn. If unclear, state a provisional frame and begin discovery.
 2. Build the current model from available evidence: affected people, triggering situation, current behavior or workaround, observed pain or cost, desired outcome, constraints, and known dependencies. Initialize the discovery map.
-3. Identify the uncertainty most likely to change scope, priority, design, or acceptance criteria. Ask the highest-information question next.
+3. Identify the uncertainty most likely to change scope, priority, design, or acceptance criteria. In an interview, ask the highest-information question next. For review or synthesis, complete the useful analysis and record gaps; pause only when an answer is necessary for the requested deliverable.
 4. Test the emerging problem definition against a recent real example, plausible competing explanation, counterexample, boundary condition, and the consequence of doing nothing. Use adversarial lenses selectively; do not run a generic checklist.
-5. When an important answer cannot be known through discussion, record a testable assumption and propose the smallest evidence-gathering step capable of changing the decision. Do not execute external research, experiments, or user-facing changes without authorization.
+5. When discussion cannot establish an important answer, record a testable assumption and choose the smallest evidence-gathering step that could change the decision. Use relevant local evidence and public read-only research within the requested scope, honoring any browsing restrictions and existing authorization. Propose experiments when needed; contacting people, publishing tests, spending money, or changing a live product requires authorization for that action. Do not request permission again for work already authorized.
 6. Cover only relevant requirement dimensions: actors and permissions, scenarios and state transitions, data, integrations, failure and recovery, performance, security and privacy, accessibility, operations, rollout, and compliance.
 7. Synthesize when the user asks, when the next decision is supportable, or when further questioning has low value. Preserve unresolved questions instead of inventing precision.
 
