@@ -2,6 +2,8 @@
 
 Choose the smallest artifact that enables the user's next decision. Omit empty sections; never fill gaps with invented details.
 
+For live interview questions, follow [Interview behavior](../SKILL.md#interview-behavior). Report templates may list all material unresolved questions; their example list lengths are not limits. If also asking for a reply now, identify that subset separately so the full inventory is not presented as an immediate questionnaire.
+
 Use confidence labels where ambiguity matters:
 
 - **Confirmed:** directly stated or supported by available evidence

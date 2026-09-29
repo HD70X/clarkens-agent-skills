@@ -128,12 +128,12 @@ Prefer observing real behavior or existing evidence over asking for stated prefe
 
 ## Question selection
 
-Prefer a question with high information gain. A strong next question distinguishes between plausible paths, retires a risky assumption, or makes a requirement testable.
+Prefer a question with high information gain. A strong next question distinguishes between plausible paths, retires a risky assumption, or makes a requirement testable. Apply the counting, dependency, and user-pacing rules in [Interview behavior](../SKILL.md#interview-behavior) when selecting questions for the current turn; the lenses above are a menu, not a questionnaire to deliver in full by default.
 
 Avoid:
 
-- long questionnaires before incorporating earlier answers
+- unsolicited long questionnaires before incorporating earlier answers
 - asking for preferred features before understanding current behavior
-- asking multiple broad questions in one message
+- mixing unrelated broad topics in one interview turn unless the user requests a full question inventory
 - requesting metrics that nobody can obtain
 - repeating information already present in supplied artifacts

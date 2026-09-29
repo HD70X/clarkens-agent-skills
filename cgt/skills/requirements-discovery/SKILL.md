@@ -48,7 +48,10 @@ Update this map after meaningful new information. Show a compact snapshot when i
 ## Interview behavior
 
 - Prefer the last real occurrence and its timeline over hypothetical opinions.
-- Ask one primary question per turn. Batch up to three tightly related questions only when the answers jointly determine the next direction; explain the grouping when it is not obvious.
+- Default to one primary question per interview turn. Ask two or three related questions together only when each can be answered independently. If an answer determines whether or how a follow-up should be asked, ask the prerequisite first and wait for its answer. Explain a grouping only when its purpose is not obvious.
+- Count separately answerable requests, including subquestions, regardless of numbering or punctuation. For example, asking who uses a feature and how often counts as two questions even in one bullet. Examples or answer choices that clarify a single question do not add to the count.
+- Follow the user's requested pace over these defaults. "One at a time" means one separately answerable question; "list everything at once" may exceed three. For a full list, group and prioritize material unknowns and label conditional follow-ups. Do not add low-value questions to fill a quota.
+- The turn limit applies to questions awaiting an answer in the current exchange, not to a report's complete inventory of unresolved questions. Distinguish questions to answer now from gaps recorded for later investigation.
 - Make questions neutral and concrete. Avoid suggesting the desired answer or treating the proposed solution as a fixed requirement.
 - Do not mechanically apply “five whys.” Probe causes only while each answer changes the model or exposes a testable assumption.
 - Summarize the evolving understanding after several meaningful answers or before changing topic; do not repeat a full summary after every turn.
