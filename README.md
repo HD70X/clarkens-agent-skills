@@ -16,13 +16,17 @@ agent-skills/
 └── claude/
     ├── skills/
     │   ├── design-interrogator/
-    │   └── product-design-interrogator/
+    │   ├── product-design-interrogator/
+    │   └── requirements-discovery/
     ├── design-interrogator.skill
     ├── product-design-interrogator.skill
+    ├── requirements-discovery.skill
     └── README.md
 ```
 
-`cgt` 保存 CGT/Codex 使用的 skill；`claude` 保存 Claude 的源文件及 `.skill` 安装包。每个 skill 的 references、scripts、agents 等配套文件都随目录一起保存。
+`cgt` 保存 CGT/Codex 使用的 skill；`claude` 保存 Claude（桌面版 / Cowork / Claude Code）的源文件及 `.skill` 安装包。每个 skill 的 references、scripts、agents 等配套文件都随目录一起保存。
+
+`claude/skills/requirements-discovery/` 是 `cgt/skills/requirements-discovery/` 的 Claude 版：references 内容相同，SKILL.md 去掉了 Codex 专用的 `agents/openai.yaml`，并补充了 Claude Code 下的输入处理、提问等待和报告落盘规则。两边同步修改时以 references 保持一致为准。
 
 ## 跨设备同步
 
@@ -49,3 +53,4 @@ git push
 - Claude 的 `.skill` 文件为现有安装包；修改 `claude/skills/` 后，应重新打包并更新对应安装包，保持二者一致。
 - 本仓库不包含账户凭证、应用配置或其他项目素材。
 - 原项目中的 `skills/`、`claude/` 和 `.claude/skills/` 已通过相对符号链接指向本仓库，保持原路径可用。这些兼容链接在仓库外，不随克隆迁移。
+- Claude Code 从项目的 `.claude/skills/<name>/SKILL.md` 和个人的 `~/.claude/skills/<name>/SKILL.md` 加载技能，符号链接会被跟随，同一目标只加载一次。安装方法见 `claude/README.md`。
