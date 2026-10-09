@@ -20,10 +20,12 @@ agent-skills/
     ├── README.md
     ├── skills/
     │   ├── design-interrogator/
-    │   └── product-design-interrogator/
+    │   ├── product-design-interrogator/
+    │   └── requirements-discovery/
     └── packages/
         ├── design-interrogator.zip
-        └── product-design-interrogator.zip
+        ├── product-design-interrogator.zip
+        └── requirements-discovery.zip
 ```
 
 ## 路径与使用入口
@@ -33,7 +35,7 @@ agent-skills/
 | 查看、修改 Codex skill | [codex/skills/](codex/skills/) | 每个子目录是一份完整 skill，连同 references、scripts、agents 等文件一起使用 |
 | 安装、更新 Codex skill | [codex/README.md](codex/README.md) | 将选中的完整目录复制到 Codex 实际加载路径 |
 | 查看、修改 Claude skill | [claude/skills/](claude/skills/) | 修改对应 skill 的源码目录 |
-| 安装、更新 Claude skill | [claude/packages/](claude/packages/) | 上传对应 ZIP；具体步骤见 [Claude 使用说明](claude/README.md) |
+| 安装、更新 Claude skill | [claude/packages/](claude/packages/) | 桌面版 / Cowork 上传 ZIP，Claude Code 安装完整源码目录；具体步骤见 [Claude 使用说明](claude/README.md) |
 
 本机仓库位于 `E:\Agent\agent-skills`，例如：
 
@@ -42,6 +44,8 @@ agent-skills/
 - Claude 设计审问者上传包：`E:\Agent\agent-skills\claude\packages\design-interrogator.zip`。
 
 仓库目录用于保存和版本管理，应用加载路径用于运行。克隆或拉取本仓库后，还需要按对应平台安装或更新；已安装的独立副本不会随 Git 拉取自动变化。不要把整个仓库或另一个平台的 `skills/` 目录作为安装内容。
+
+Claude 版 [requirements-discovery](claude/skills/requirements-discovery/) 与 [Codex 版](codex/skills/requirements-discovery/) 同源，Claude 版已适配 Claude Code 的输入、提问等待和报告保存方式。共同参考资料的修改需检查两边是否需要同步，平台指令分别维护。
 
 ## 维护规则
 
@@ -78,5 +82,6 @@ git push
 | `cgt/skills/<skill-name>/` | `codex/skills/<skill-name>/` |
 | `claude/design-interrogator.skill` | `claude/packages/design-interrogator.zip` |
 | `claude/product-design-interrogator.skill` | `claude/packages/product-design-interrogator.zip` |
+| `claude/requirements-discovery.skill` | `claude/packages/requirements-discovery.zip` |
 
 旧 `.skill` 文件本身是 ZIP，本次保留原包内容并统一为 `.zip` 后缀。引用旧仓库路径的脚本和符号链接也应更新到新路径。

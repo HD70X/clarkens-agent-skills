@@ -1,6 +1,6 @@
 # Claude Skills
 
-本目录保存为 Claude 桌面版 / Cowork 适配的 skill。源码位于 `skills/`，上传包位于 `packages/`。本库 Claude 与 Codex 版本分别维护，不能将 Codex 目录或指令直接作为 Claude 版本安装。
+本目录保存为 Claude 桌面版 / Cowork / Claude Code 适配的 skill。源码位于 `skills/`，上传包位于 `packages/`。本库 Claude 与 Codex 版本分别维护，不能将 Codex 目录或指令直接作为 Claude 版本安装。
 
 ## Skill 索引与路径
 
@@ -9,7 +9,9 @@
 | design-interrogator | 通用设计、方案和计划的澄清与风险审视 | [skills/design-interrogator/](skills/design-interrogator/) | [packages/design-interrogator.zip](packages/design-interrogator.zip) |
 | product-design-interrogator | 产品和功能需求的分析与可验证假设 | [skills/product-design-interrogator/](skills/product-design-interrogator/) | [packages/product-design-interrogator.zip](packages/product-design-interrogator.zip) |
 
-分析对象是产品或功能时优先使用 product-design-interrogator；其他方案、计划和设计使用 design-interrogator。
+| requirements-discovery | 澄清模糊需求、审查 PRD 缺口，形成范围与验收标准 | [skills/requirements-discovery/](skills/requirements-discovery/) | [packages/requirements-discovery.zip](packages/requirements-discovery.zip) |
+
+分析对象是产品或功能时优先使用 product-design-interrogator；其他方案、计划和设计使用 design-interrogator。尚未形成方案、需要澄清问题与需求时使用 requirements-discovery；该 skill 已针对 Claude Code 适配，并随包保留 references。
 
 本机路径示例：
 
@@ -24,7 +26,18 @@ Claude 桌面版 / Cowork 的安装入口是应用中的 skill 上传界面，�
 
 修改源码并重新打包后，在应用中更新或替换对应的已上传 skill，并确认启用的是新版本。拉取本仓库或修改本地源码不会自动更新已经上传的独立副本。不把单份 `SKILL.md` 当作完整安装包。
 
-本目录面向上述 Claude 使用方式；如需用于 Claude Code 或 API，先确认并适配对应产品的加载方式、工具和执行环境。
+## 在 Claude Code 中安装
+
+Claude Code 直接加载完整 skill 文件夹。根据 [Claude Code 官方说明](https://code.claude.com/docs/en/skills)，可选位置：
+
+- 项目级：`<项目>/.claude/skills/<skill-name>/SKILL.md`。
+- 个人级：`~/.claude/skills/<skill-name>/SKILL.md`。
+
+例如，把 `E:\Agent\agent-skills\claude\skills\requirements-discovery` 整个目录复制到 `C:\Users\35143\.claude\skills\requirements-discovery`。保留 references 等配套文件；目标已存在时先备份，再更新完整目录。也可使用指向仓库源码目录的符号链接，确保目标路径在当前设备有效。
+
+安装后输入 `/requirements-discovery <想法或 PRD 路径>` 调用，也可以用自然语言提出需求。通过复制安装时，拉取 Git 后需更新副本；通过符号链接安装时，源码修改直接反映到加载目录。避免在多个加载位置安装同名副本。
+
+上传包和 Claude Code 共用此处的 Claude 源码；维护时保留 `name`、`description` 等通用 frontmatter，并核对各使用环境的字段支持。API 使用需另行确认工具与执行环境。
 
 ## 包结构与重新打包
 
