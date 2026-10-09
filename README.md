@@ -10,6 +10,7 @@ agent-skills/
 │   └── skills/
 │       ├── art-asset-generation/
 │       ├── art-style-pack/
+│       ├── iterative-development/
 │       ├── model-asset-generation/
 │       ├── model-style-pack/
 │       └── requirements-discovery/
