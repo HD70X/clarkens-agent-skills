@@ -1,30 +1,60 @@
-# Claude 适配文件夹
+# Claude Skills
 
-本文件夹存放为 Claude（桌面版 / Cowork）适配的自定义 skill，用于备份和跨设备迁移。
+本目录保存为 Claude 桌面版 / Cowork 适配的 skill。源码位于 `skills/`，上传包位于 `packages/`。本库 Claude 与 Codex 版本分别维护，不能将 Codex 目录或指令直接作为 Claude 版本安装。
 
-## 目录结构
+## Skill 索引与路径
 
+| Skill | 用途 | 源码 | 上传包 |
+| --- | --- | --- | --- |
+| design-interrogator | 通用设计、方案和计划的澄清与风险审视 | [skills/design-interrogator/](skills/design-interrogator/) | [packages/design-interrogator.zip](packages/design-interrogator.zip) |
+| product-design-interrogator | 产品和功能需求的分析与可验证假设 | [skills/product-design-interrogator/](skills/product-design-interrogator/) | [packages/product-design-interrogator.zip](packages/product-design-interrogator.zip) |
+
+分析对象是产品或功能时优先使用 product-design-interrogator；其他方案、计划和设计使用 design-interrogator。
+
+本机路径示例：
+
+- 源码：`E:\Agent\agent-skills\claude\skills\design-interrogator`。
+- 上传包：`E:\Agent\agent-skills\claude\packages\design-interrogator.zip`。
+
+## 安装与更新
+
+Claude 桌面版 / Cowork 的安装入口是应用中的 skill 上传界面，仓库源码目录用于维护。
+
+按 [Claude 官方使用说明](https://support.claude.com/en/articles/12512180-use-skills-in-claude)，进入 **Customize > Skills**，点击 **+ Create skill**，选择 **Upload a skill**，上传 `packages/` 中对应的 ZIP，然后启用。
+
+修改源码并重新打包后，在应用中更新或替换对应的已上传 skill，并确认启用的是新版本。拉取本仓库或修改本地源码不会自动更新已经上传的独立副本。不把单份 `SKILL.md` 当作完整安装包。
+
+本目录面向上述 Claude 使用方式；如需用于 Claude Code 或 API，先确认并适配对应产品的加载方式、工具和执行环境。
+
+## 包结构与重新打包
+
+每个 ZIP 只包含对应的 skill 顶层文件夹，`SKILL.md` 位于其下；references、scripts 或其他资源随文件夹一起打包。[官方打包说明](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
+
+```text
+design-interrogator.zip
+└── design-interrogator/
+    └── SKILL.md
 ```
-claude/
-├── README.md                              # 本说明
-├── skills/                                # skill 源文件（可直接阅读和修改）
-│   ├── design-interrogator/SKILL.md       # 设计审问者（通用版）
-│   └── product-design-interrogator/SKILL.md  # 产品设计审问者（产品/功能专用版）
-├── design-interrogator.skill              # 一键安装包
-└── product-design-interrogator.skill      # 一键安装包
+
+不要把整个 `claude/`、`skills/` 外层目录或两个 skill 一起打进同一个上传包。旧 `.skill` 文件已经统一为标准 ZIP 后缀。
+
+从仓库源码重新生成单个包，PowerShell 示例：
+
+```powershell
+$taskRepo = 'E:\Agent\agent-skills'
+$taskSkillName = 'design-interrogator'
+$taskSource = Join-Path $taskRepo "claude\skills\$taskSkillName"
+$taskPackage = Join-Path $taskRepo "claude\packages\$taskSkillName.zip"
+Compress-Archive -LiteralPath $taskSource -DestinationPath $taskPackage -Force
 ```
 
-## 两个 skill 的分工
+更新另一个 skill 时替换 `$taskSkillName`。提交时把修改的源码和重新生成的 ZIP 一起提交。
 
-- **design-interrogator（设计审问者）**：通用内核 + 领域透镜，分析任何原型观念、方案、计划。通过多轮提问挖掘不确定性、逻辑漏洞和思维定势之外的风险。
-- **product-design-interrogator（产品设计审问者）**：专注产品/功能设计。含 10 个产品专项提问维度（需求真实性、行为假设、反向滥用等），待验证假设会附带建议的验证手段。**分析对象是产品/功能时优先用这个。**
+## 验证与维护
 
-## 在其他设备上安装
+1. 修改 `skills/<skill-name>/` 中的源码，核对名称、描述和相关资源。
+2. 重新打包，检查解压后的目录结构与内容是否对应当前源码。
+3. 在 Claude 中上传或更新，启用后用实际请求验证触发和结果。
+4. 源码、上传包及对应说明一并版本管理；不要直接编辑应用的缓存副本。
 
-方式一（推荐）：把 `.skill` 文件发送到该设备上的 Claude 对话中，会出现"保存技能（Save skill）"按钮，点击即可安装到账户。
-
-方式二：把对应的 `SKILL.md` 内容发给 Claude，说"请把这个保存为我的 skill"。
-
-## 修改 skill
-
-直接编辑 `skills/` 下的 SKILL.md 后，需要让 Claude 重新保存才会生效（对 Claude 说"用这个文件更新我的 xxx skill"）。已安装 skill 的运行副本是只读缓存，改这里的文件不会自动同步。
+Codex 的路径与使用方式见 [codex/README.md](../codex/README.md)。

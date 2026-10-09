@@ -1,12 +1,14 @@
 # Agent Skills
 
-个人 skill 源文件与安装包，按使用平台分类，便于版本管理和跨设备同步。
+个人 skill 仓库，按 Claude 和 Codex 两个平台分别维护。**本库两套 skill 分别适配各自的工具、执行环境和工作流，不能直接跨平台安装或替换。** 同一能力需要支持两个平台时，分别保留并验证各自版本。
 
-## 目录
+## 目录结构
 
 ```text
 agent-skills/
-├── cgt/
+├── README.md
+├── codex/
+│   ├── README.md
 │   └── skills/
 │       ├── art-asset-generation/
 │       ├── art-style-pack/
@@ -15,38 +17,66 @@ agent-skills/
 │       ├── model-style-pack/
 │       └── requirements-discovery/
 └── claude/
+    ├── README.md
     ├── skills/
     │   ├── design-interrogator/
     │   └── product-design-interrogator/
-    ├── design-interrogator.skill
-    ├── product-design-interrogator.skill
-    └── README.md
+    └── packages/
+        ├── design-interrogator.zip
+        └── product-design-interrogator.zip
 ```
 
-`cgt` 保存 CGT/Codex 使用的 skill；`claude` 保存 Claude 的源文件及 `.skill` 安装包。每个 skill 的 references、scripts、agents 等配套文件都随目录一起保存。
+## 路径与使用入口
+
+| 目的 | 仓库路径 | 使用方式 |
+| --- | --- | --- |
+| 查看、修改 Codex skill | [codex/skills/](codex/skills/) | 每个子目录是一份完整 skill，连同 references、scripts、agents 等文件一起使用 |
+| 安装、更新 Codex skill | [codex/README.md](codex/README.md) | 将选中的完整目录复制到 Codex 实际加载路径 |
+| 查看、修改 Claude skill | [claude/skills/](claude/skills/) | 修改对应 skill 的源码目录 |
+| 安装、更新 Claude skill | [claude/packages/](claude/packages/) | 上传对应 ZIP；具体步骤见 [Claude 使用说明](claude/README.md) |
+
+本机仓库位于 `E:\Agent\agent-skills`，例如：
+
+- Codex 自动迭代开发源码：`E:\Agent\agent-skills\codex\skills\iterative-development`。
+- Claude 设计审问者源码：`E:\Agent\agent-skills\claude\skills\design-interrogator`。
+- Claude 设计审问者上传包：`E:\Agent\agent-skills\claude\packages\design-interrogator.zip`。
+
+仓库目录用于保存和版本管理，应用加载路径用于运行。克隆或拉取本仓库后，还需要按对应平台安装或更新；已安装的独立副本不会随 Git 拉取自动变化。不要把整个仓库或另一个平台的 `skills/` 目录作为安装内容。
+
+## 维护规则
+
+1. 先选择目标平台，只修改该平台的 skill；跨平台移植需适配并分别验证。
+2. 以 `<平台>/skills/<skill-name>/` 为源码，每个 skill 保留完整配套文件。
+3. Claude 源码改变后，重新生成 `claude/packages/<skill-name>.zip` 并更新上传版本；不要只修改安装包。
+4. Codex 源码改变后，更新已安装副本并在目标环境验证；按需保留该平台的 `agents/openai.yaml`。
+5. 新增或移除 skill 时同步更新目录索引及平台说明。
+6. 运行日志、测试工作区、账户配置和凭证留在仓库外。
 
 ## 跨设备同步
 
-在其他设备登录有访问权限的 GitHub 账号后执行：
-
 ```sh
-git clone https://github.com/HD70X/agent-skills.git agent-skills
+git clone https://github.com/HD70X/clarkens-agent-skills.git agent-skills
 cd agent-skills
+git pull --ff-only
 ```
 
-更新前运行 `git pull --ff-only`。修改后运行：
+修改完成后，检查并提交对应文件，再推送：
 
 ```sh
-git add .
+git status
+git add <本次修改的路径>
 git commit -m "Update skills"
 git push
 ```
 
-换设备工作前先提交并推送当前设备的修改，再在另一台设备拉取。存在未提交修改时，先提交或暂存，再同步。
+换设备工作前先完成当前设备的提交与推送，再到另一台设备拉取和更新该平台的安装副本。存在未提交修改时先整理本地改动，再同步。
 
-## 使用与维护
+## 旧路径迁移
 
-- Git 同步的是源文件；应用中已安装的独立副本不会自动更新。安装或更新时请使用对应平台目录中的完整 skill 文件夹。
-- Claude 的 `.skill` 文件为现有安装包；修改 `claude/skills/` 后，应重新打包并更新对应安装包，保持二者一致。
-- 本仓库不包含账户凭证、应用配置或其他项目素材。
-- 原项目中的 `skills/`、`claude/` 和 `.claude/skills/` 已通过相对符号链接指向本仓库，保持原路径可用。这些兼容链接在仓库外，不随克隆迁移。
+| 旧路径 | 新路径 |
+| --- | --- |
+| `cgt/skills/<skill-name>/` | `codex/skills/<skill-name>/` |
+| `claude/design-interrogator.skill` | `claude/packages/design-interrogator.zip` |
+| `claude/product-design-interrogator.skill` | `claude/packages/product-design-interrogator.zip` |
+
+旧 `.skill` 文件本身是 ZIP，本次保留原包内容并统一为 `.zip` 后缀。引用旧仓库路径的脚本和符号链接也应更新到新路径。
