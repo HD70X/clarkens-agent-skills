@@ -8,7 +8,7 @@
 | --- | --- |
 | [art-asset-generation](skills/art-asset-generation/SKILL.md) | 按已有画风包生成或返工栅格素材 |
 | [art-style-pack](skills/art-style-pack/SKILL.md) | 建立、校准和维护栅格画风包 |
-| [iterative-development](skills/iterative-development/SKILL.md) | 限时组织开发、独立验收和自主改进，保留达标版本 |
+| [iterative-development](skills/iterative-development/SKILL.md) | 按目标限时开发、独立验收和修复，达标收尾并交付人工复核 |
 | [model-asset-generation](skills/model-asset-generation/SKILL.md) | 按已有模型风格包制作或返工 3D 模型 |
 | [model-style-pack](skills/model-style-pack/SKILL.md) | 建立、校准和维护 3D 模型风格包 |
 | [requirements-discovery](skills/requirements-discovery/SKILL.md) | 澄清需求、审查缺口并形成可验证要求 |

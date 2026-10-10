@@ -1,4 +1,4 @@
 interface:
   display_name: "自动迭代开发"
-  short_description: "跨项目组织开发、独立验收与自主改进，在时间预算内保留可运行成果"
-  default_prompt: "使用 $iterative-development，依据本项目目标和已确认的时间预算自动开发、独立验收与修复；保留达标版本，有明确价值的改进再继续。"
+  short_description: "按约定目标自动开发、独立验收与修复，达标收尾并集中交付人工复核"
+  default_prompt: "使用 $iterative-development，在已确认的目标和时间预算内自动开发、独立验收、修复与复验；达标、到期或无法继续时收尾，交付可运行版本、证据及人工复核项。"
