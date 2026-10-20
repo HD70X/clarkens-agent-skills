@@ -15,7 +15,8 @@ agent-skills/
 │       ├── iterative-development/
 │       ├── model-asset-generation/
 │       ├── model-style-pack/
-│       └── requirements-discovery/
+│       ├── requirements-discovery/
+│       └── tripo-model/
 └── claude/
     ├── README.md
     ├── skills/

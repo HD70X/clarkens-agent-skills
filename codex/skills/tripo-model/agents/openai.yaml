@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tripo 建模"
+  short_description: "通过 Tripo API 生成、处理与下载 3D 模型，默认使用 CN 国内站点"
+  default_prompt: "使用 $tripo-model 从文字或参考图生成一个三维模型，默认使用 CN 站并保存到当前项目。"

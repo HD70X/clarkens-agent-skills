@@ -12,6 +12,9 @@
 | [model-asset-generation](skills/model-asset-generation/SKILL.md) | 按已有模型风格包制作或返工 3D 模型 |
 | [model-style-pack](skills/model-style-pack/SKILL.md) | 建立、校准和维护 3D 模型风格包 |
 | [requirements-discovery](skills/requirements-discovery/SKILL.md) | 澄清需求、审查缺口并形成可验证要求 |
+| [tripo-model](skills/tripo-model/SKILL.md) | 默认 CN，通过 Tripo 生成、处理、续查与下载三维模型，私有凭据由本机配置引用 |
+
+`tripo-model` 的 [配置与迁移说明](skills/tripo-model/references/configuration.md) 附带无密钥配置和凭据文档模板。换设备安装后，在该设备的私有目录填写密钥并运行连接检查即可；真实凭据不进入仓库。
 
 ## 源码路径与安装路径
 
