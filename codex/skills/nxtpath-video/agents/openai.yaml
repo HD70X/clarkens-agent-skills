@@ -1,0 +1,4 @@
+interface:
+  display_name: "哪都通图生视频"
+  short_description: "通过哪都通 Seedance 从参考图制作视频小样，保留任务并跨对话续查下载"
+  default_prompt: "使用 $nxtpath-video，将这张参考图制作成动作视频小样，并保留任务记录供后续审看。"

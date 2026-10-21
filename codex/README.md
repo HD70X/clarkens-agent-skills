@@ -8,9 +8,12 @@
 | --- | --- |
 | [art-asset-generation](skills/art-asset-generation/SKILL.md) | 按已有画风包生成或返工栅格素材 |
 | [art-style-pack](skills/art-style-pack/SKILL.md) | 建立、校准和维护栅格画风包 |
+| [deepseek-iterative-development](skills/deepseek-iterative-development/SKILL.md) | Codex 统筹迭代，优先委派 DeepSeek 开发代码，独立验收并按需接手；依赖 iterative-development |
+| [gemini-bridge](skills/gemini-bridge/SKILL.md) | macOS / Windows 设备级凭据，使用时选择 Gemini 模型，按任务授权咨询或委派执行 |
 | [iterative-development](skills/iterative-development/SKILL.md) | 按目标限时开发、独立验收和修复，达标收尾并交付人工复核 |
 | [model-asset-generation](skills/model-asset-generation/SKILL.md) | 按已有模型风格包制作或返工 3D 模型 |
 | [model-style-pack](skills/model-style-pack/SKILL.md) | 建立、校准和维护 3D 模型风格包 |
+| [nxtpath-video](skills/nxtpath-video/SKILL.md) | 通过哪都通 Seedance 2.5 从参考图生成视频，保留任务并跨对话续查下载 |
 | [requirements-discovery](skills/requirements-discovery/SKILL.md) | 澄清需求、审查缺口并形成可验证要求 |
 | [tripo-model](skills/tripo-model/SKILL.md) | 默认 CN，通过 Tripo 生成、处理、续查与下载三维模型，私有凭据由本机配置引用 |
 
@@ -30,6 +33,8 @@
 ## 安装与更新
 
 将选中的 `codex/skills/<skill-name>/` 整个目录复制到实际加载位置，使 `SKILL.md` 位于 `<加载位置>/<skill-name>/SKILL.md`。只复制 `SKILL.md` 会遗漏脚本、参考文件或界面元数据。
+
+安装 `deepseek-iterative-development` 时，还需将 `iterative-development` 安装到同一加载目录，保留两个 skill 的同级关系。按该 skill 的执行参考在目标设备单独完成配置；本仓库只保存 skill 源码，不包含 API 凭据、本机配置或运行记录。
 
 下面是本机首次安装示例；若目标已存在，先将旧版本备份到加载目录外，再替换整个 skill 目录：
 

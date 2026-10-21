@@ -12,19 +12,25 @@ agent-skills/
 │   └── skills/
 │       ├── art-asset-generation/
 │       ├── art-style-pack/
+│       ├── deepseek-iterative-development/
 │       ├── iterative-development/
 │       ├── model-asset-generation/
 │       ├── model-style-pack/
+│       ├── nxtpath-video/
 │       ├── requirements-discovery/
 │       └── tripo-model/
 └── claude/
     ├── README.md
     ├── skills/
     │   ├── design-interrogator/
+    │   ├── iterative-development/
+    │   ├── nxtpath-video/
     │   ├── product-design-interrogator/
     │   └── requirements-discovery/
     └── packages/
         ├── design-interrogator.zip
+        ├── iterative-development.zip
+        ├── nxtpath-video.zip
         ├── product-design-interrogator.zip
         └── requirements-discovery.zip
 ```
@@ -46,7 +52,9 @@ agent-skills/
 
 仓库目录用于保存和版本管理，应用加载路径用于运行。克隆或拉取本仓库后，还需要按对应平台安装或更新；已安装的独立副本不会随 Git 拉取自动变化。不要把整个仓库或另一个平台的 `skills/` 目录作为安装内容。
 
-Claude 版 [requirements-discovery](claude/skills/requirements-discovery/) 与 [Codex 版](codex/skills/requirements-discovery/) 同源，Claude 版已适配 Claude Code 的输入、提问等待和报告保存方式。共同参考资料的修改需检查两边是否需要同步，平台指令分别维护。
+Claude 版 [requirements-discovery](claude/skills/requirements-discovery/) 与 [Codex 版](codex/skills/requirements-discovery/) 同源，Claude 版已适配 Claude Code 的输入、提问等待和报告保存方式。Claude 版 [iterative-development](claude/skills/iterative-development/) 与 [Codex 版](codex/skills/iterative-development/) 同源：两份验收参考和 `run_control.py` 相同，SKILL.md、协作、执行与运行状态参考按 Claude Code 的子智能体、worktree、定时唤醒和权限机制改写，面向 Claude Code 使用。共同参考资料的修改需检查两边是否需要同步，平台指令分别维护。
+
+[Codex 版 nxtpath-video](codex/skills/nxtpath-video/) 与 [Claude Code 版](claude/skills/nxtpath-video/) 分别保存、验证和安装，任务客户端与离线测试保持一致，执行工具与视频交付指令按平台适配。两者读取同一套本机 `NXTPATH_` 环境配置；凭证、工具虚拟环境和生成任务记录不进入本仓库。
 
 ## 维护规则
 
