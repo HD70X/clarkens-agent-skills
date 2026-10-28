@@ -16,6 +16,7 @@ agent-skills/
 │       ├── iterative-development/
 │       ├── model-asset-generation/
 │       ├── model-style-pack/
+│       ├── nxtpath-minimax-video/
 │       ├── nxtpath-video/
 │       ├── requirements-discovery/
 │       └── tripo-model/
@@ -55,6 +56,8 @@ agent-skills/
 Claude 版 [requirements-discovery](claude/skills/requirements-discovery/) 与 [Codex 版](codex/skills/requirements-discovery/) 同源，Claude 版已适配 Claude Code 的输入、提问等待和报告保存方式。Claude 版 [iterative-development](claude/skills/iterative-development/) 与 [Codex 版](codex/skills/iterative-development/) 同源：两份验收参考和 `run_control.py` 相同，SKILL.md、协作、执行与运行状态参考按 Claude Code 的子智能体、worktree、定时唤醒和权限机制改写，面向 Claude Code 使用。共同参考资料的修改需检查两边是否需要同步，平台指令分别维护。
 
 [Codex 版 nxtpath-video](codex/skills/nxtpath-video/) 与 [Claude Code 版](claude/skills/nxtpath-video/) 分别保存、验证和安装，任务客户端与离线测试保持一致，执行工具与视频交付指令按平台适配。两者读取同一套本机 `NXTPATH_` 环境配置；凭证、工具虚拟环境和生成任务记录不进入本仓库。
+
+[Codex 版 nxtpath-minimax-video](codex/skills/nxtpath-minimax-video/) 使用哪都通 MiniMax H3，支持文生视频、首尾帧与普通参考图，复用上述本机私有配置。该技能独立保存客户端与验证，不依赖 Seedance skill 文件。
 
 ## 维护规则
 

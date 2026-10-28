@@ -13,6 +13,7 @@
 | [iterative-development](skills/iterative-development/SKILL.md) | 按目标限时开发、独立验收和修复，达标收尾并交付人工复核 |
 | [model-asset-generation](skills/model-asset-generation/SKILL.md) | 按已有模型风格包制作或返工 3D 模型 |
 | [model-style-pack](skills/model-style-pack/SKILL.md) | 建立、校准和维护 3D 模型风格包 |
+| [nxtpath-minimax-video](skills/nxtpath-minimax-video/SKILL.md) | 通过哪都通 MiniMax H3 生成视频，支持首尾帧、参考图和跨对话续查下载 |
 | [nxtpath-video](skills/nxtpath-video/SKILL.md) | 通过哪都通 Seedance 2.5 从参考图生成视频，保留任务并跨对话续查下载 |
 | [requirements-discovery](skills/requirements-discovery/SKILL.md) | 澄清需求、审查缺口并形成可验证要求 |
 | [tripo-model](skills/tripo-model/SKILL.md) | 默认 CN，通过 Tripo 生成、处理、续查与下载三维模型，私有凭据由本机配置引用 |

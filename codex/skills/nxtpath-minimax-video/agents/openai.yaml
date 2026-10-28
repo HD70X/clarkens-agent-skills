@@ -1,0 +1,4 @@
+interface:
+  display_name: "哪都通 MiniMax 视频"
+  short_description: "通过哪都通 MiniMax H3 生成视频，支持首尾帧并保留任务续查下载"
+  default_prompt: "使用 $nxtpath-minimax-video，通过哪都通 MiniMax H3 制作一条视频候选，并保留任务以便续查和下载。"
