@@ -1,0 +1,4 @@
+interface:
+  display_name: "MiniMax 官方视频"
+  short_description: "通过 MiniMax 官方 H3 生成视频，支持多模态参考与跨对话续查下载"
+  default_prompt: "使用 $minimax-video，通过 MiniMax 官方 API 制作一条视频候选，并保留任务以便续查和下载。"

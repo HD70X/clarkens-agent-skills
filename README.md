@@ -1,21 +1,35 @@
 # Agent Skills
 
-个人 skill 仓库，按 Claude 和 Codex 两个平台分别维护。**本库两套 skill 分别适配各自的工具、执行环境和工作流，不能直接跨平台安装或替换。** 同一能力需要支持两个平台时，分别保留并验证各自版本。
+个人 skill 仓库，按 Antigravity、Claude 和 Codex 三个平台分别维护。**各平台 skill 分别适配各自的工具、执行环境和工作流，不能直接跨平台混装指令文件；但项目数据产物（如 2D Style Pack、迭代运行控制状态、Nxtpath / Tripo 本机配置）可跨平台通用。** 同一能力需要支持多个平台时，分别保留并验证各自版本。
 
 ## 目录结构
 
 ```text
 agent-skills/
 ├── README.md
+├── antigravity/
+│   ├── README.md
+│   └── skills/
+│       ├── art-asset-generation/
+│       ├── art-style-pack/
+│       ├── design-interrogator/
+│       ├── iterative-development/
+│       ├── nxtpath-minimax-video/
+│       ├── nxtpath-video/
+│       ├── product-design-interrogator/
+│       ├── requirements-discovery/
+│       └── tripo-model/
 ├── codex/
 │   ├── README.md
 │   └── skills/
 │       ├── art-asset-generation/
 │       ├── art-style-pack/
 │       ├── deepseek-iterative-development/
+│       ├── gemini-bridge/
 │       ├── iterative-development/
 │       ├── model-asset-generation/
 │       ├── model-style-pack/
+│       ├── minimax-video/
 │       ├── nxtpath-minimax-video/
 │       ├── nxtpath-video/
 │       ├── requirements-discovery/
@@ -40,6 +54,7 @@ agent-skills/
 
 | 目的 | 仓库路径 | 使用方式 |
 | --- | --- | --- |
+| 查看、修改与安装 Antigravity skill | [antigravity/skills/](antigravity/skills/) / [antigravity/README.md](antigravity/README.md) | 符号链接或复制完整目录到 `~/.gemini/config/skills/` 或项目 `.agents/skills/` |
 | 查看、修改 Codex skill | [codex/skills/](codex/skills/) | 每个子目录是一份完整 skill，连同 references、scripts、agents 等文件一起使用 |
 | 安装、更新 Codex skill | [codex/README.md](codex/README.md) | 将选中的完整目录复制到 Codex 实际加载路径 |
 | 查看、修改 Claude skill | [claude/skills/](claude/skills/) | 修改对应 skill 的源码目录 |
@@ -58,6 +73,8 @@ Claude 版 [requirements-discovery](claude/skills/requirements-discovery/) 与 [
 [Codex 版 nxtpath-video](codex/skills/nxtpath-video/) 与 [Claude Code 版](claude/skills/nxtpath-video/) 分别保存、验证和安装，任务客户端与离线测试保持一致，执行工具与视频交付指令按平台适配。两者读取同一套本机 `NXTPATH_` 环境配置；凭证、工具虚拟环境和生成任务记录不进入本仓库。
 
 [Codex 版 nxtpath-minimax-video](codex/skills/nxtpath-minimax-video/) 使用哪都通 MiniMax H3，支持文生视频、首尾帧与普通参考图，复用上述本机私有配置。该技能独立保存客户端与验证，不依赖 Seedance skill 文件。
+
+[Codex 版 minimax-video](codex/skills/minimax-video/) 直连 MiniMax 官方 H3，支持文本、首尾帧及图片/视频/音频参考，可跨对话恢复任务和下载；官方密钥、工具环境与可选 R2 设置保存在仓库外的本机私有配置。一般 MiniMax 新任务优先使用官方版，哪都通版用于明确指定中转站或恢复旧任务。
 
 ## 维护规则
 

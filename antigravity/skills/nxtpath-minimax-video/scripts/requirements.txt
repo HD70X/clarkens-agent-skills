@@ -1,0 +1,2 @@
+# Only needed for local reference image hosting; URL/video API paths use stdlib.
+boto3==1.42.97

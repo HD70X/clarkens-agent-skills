@@ -1,6 +1,6 @@
 ---
 name: nxtpath-minimax-video
-description: 通过哪都通 / Nxtpath 的 MiniMax H3 生成视频，支持文生视频、首尾帧或参考图，保存任务以便跨对话续查和下载。用于明确要求 MiniMax 视频或调用本 skill 的任务；Seedance 视频使用 nxtpath-video。
+description: 通过哪都通 / Nxtpath 的 MiniMax H3 生成视频并恢复旧任务，支持首尾帧和参考图。用于明确指定哪都通、调用本 skill 或续查其历史任务；一般 MiniMax 新任务及官方 API 使用 minimax-video，Seedance 使用 nxtpath-video。
 ---
 
 # 哪都通 MiniMax 视频

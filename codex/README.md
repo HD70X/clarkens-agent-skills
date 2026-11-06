@@ -13,12 +13,17 @@
 | [iterative-development](skills/iterative-development/SKILL.md) | 按目标限时开发、独立验收和修复，达标收尾并交付人工复核 |
 | [model-asset-generation](skills/model-asset-generation/SKILL.md) | 按已有模型风格包制作或返工 3D 模型 |
 | [model-style-pack](skills/model-style-pack/SKILL.md) | 建立、校准和维护 3D 模型风格包 |
+| [minimax-video](skills/minimax-video/SKILL.md) | 通过 MiniMax 官方 H3 生成视频，支持图片/视频/音频参考及跨对话续查下载 |
 | [nxtpath-minimax-video](skills/nxtpath-minimax-video/SKILL.md) | 通过哪都通 MiniMax H3 生成视频，支持首尾帧、参考图和跨对话续查下载 |
 | [nxtpath-video](skills/nxtpath-video/SKILL.md) | 通过哪都通 Seedance 2.5 从参考图生成视频，保留任务并跨对话续查下载 |
 | [requirements-discovery](skills/requirements-discovery/SKILL.md) | 澄清需求、审查缺口并形成可验证要求 |
 | [tripo-model](skills/tripo-model/SKILL.md) | 默认 CN，通过 Tripo 生成、处理、续查与下载三维模型，私有凭据由本机配置引用 |
 
 `tripo-model` 的 [配置与迁移说明](skills/tripo-model/references/configuration.md) 附带无密钥配置和凭据文档模板。换设备安装后，在该设备的私有目录填写密钥并运行连接检查即可；真实凭据不进入仓库。
+
+`minimax-video` 使用官方 API，独立配置见[配置与恢复](skills/minimax-video/references/configuration.md)，支持本机隐藏输入密钥、inline 本地素材与可选私有 R2。一般 MiniMax 新任务使用此技能；`nxtpath-minimax-video` 保留供明确指定哪都通或恢复其历史任务，两个服务的任务 ID 不互通。
+
+本机还使用 Anthropic 提供的文档协作 skill，安装来源见上游的 [doc-coauthoring](https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring)。
 
 ## 源码路径与安装路径
 
