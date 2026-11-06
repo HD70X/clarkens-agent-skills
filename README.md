@@ -14,6 +14,7 @@ agent-skills/
 │       ├── art-style-pack/
 │       ├── design-interrogator/
 │       ├── iterative-development/
+│       ├── minimax-video/
 │       ├── nxtpath-minimax-video/
 │       ├── nxtpath-video/
 │       ├── product-design-interrogator/
@@ -74,7 +75,7 @@ Claude 版 [requirements-discovery](claude/skills/requirements-discovery/) 与 [
 
 [Codex 版 nxtpath-minimax-video](codex/skills/nxtpath-minimax-video/) 使用哪都通 MiniMax H3，支持文生视频、首尾帧与普通参考图，复用上述本机私有配置。该技能独立保存客户端与验证，不依赖 Seedance skill 文件。
 
-[Codex 版 minimax-video](codex/skills/minimax-video/) 直连 MiniMax 官方 H3，支持文本、首尾帧及图片/视频/音频参考，可跨对话恢复任务和下载；官方密钥、工具环境与可选 R2 设置保存在仓库外的本机私有配置。一般 MiniMax 新任务优先使用官方版，哪都通版用于明确指定中转站或恢复旧任务。
+[Codex 版 minimax-video](codex/skills/minimax-video/) 与 [Antigravity 版 minimax-video](antigravity/skills/minimax-video/) 直连 MiniMax 官方 H3，支持文本、首尾帧及图片/视频/音频参考，可跨对话恢复任务和下载；官方密钥、工具环境与可选 R2 设置保存在仓库外的本机私有配置（`~/.config/minimax/env`）。一般 MiniMax 新任务优先使用官方版，哪都通版用于明确指定中转站或恢复旧任务。
 
 ## 维护规则
 
