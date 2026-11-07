@@ -17,11 +17,14 @@
 | [nxtpath-minimax-video](skills/nxtpath-minimax-video/SKILL.md) | 通过哪都通 MiniMax H3 生成视频，支持首尾帧、参考图和跨对话续查下载 |
 | [nxtpath-video](skills/nxtpath-video/SKILL.md) | 通过哪都通 Seedance 2.5 从参考图生成视频，保留任务并跨对话续查下载 |
 | [requirements-discovery](skills/requirements-discovery/SKILL.md) | 澄清需求、审查缺口并形成可验证要求 |
+| [seedance-video](skills/seedance-video/SKILL.md) | 通过火山方舟或 BytePlus 官方 API 生成 Seedance 视频，支持首尾帧、多模态参考及续查下载 |
 | [tripo-model](skills/tripo-model/SKILL.md) | 默认 CN，通过 Tripo 生成、处理、续查与下载三维模型，私有凭据由本机配置引用 |
 
 `tripo-model` 的 [配置与迁移说明](skills/tripo-model/references/configuration.md) 附带无密钥配置和凭据文档模板。换设备安装后，在该设备的私有目录填写密钥并运行连接检查即可；真实凭据不进入仓库。
 
 `minimax-video` 使用官方 API，独立配置见[配置与恢复](skills/minimax-video/references/configuration.md)，支持本机隐藏输入密钥、inline 本地素材与可选私有 R2。一般 MiniMax 新任务使用此技能；`nxtpath-minimax-video` 保留供明确指定哪都通或恢复其历史任务，两个服务的任务 ID 不互通。
+
+`seedance-video` 默认使用火山方舟 Seedance 2.5，也可显式选择 BytePlus 国际站。官方 Key 与已有任务的导入方式见[配置与恢复](skills/seedance-video/references/configuration.md)。哪都通任务由 `nxtpath-video` 续查。
 
 本机还使用 Anthropic 提供的文档协作 skill，安装来源见上游的 [doc-coauthoring](https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring)。
 

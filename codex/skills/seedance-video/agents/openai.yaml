@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seedance 官方视频"
+  short_description: "通过火山方舟或 BytePlus 生成 Seedance 视频并续查下载"
+  default_prompt: "用 $seedance-video 通过官方 API 生成一条视频，保留任务以便续查和下载。"
