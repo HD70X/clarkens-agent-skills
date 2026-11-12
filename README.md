@@ -1,6 +1,6 @@
 # Agent Skills
 
-个人 skill 仓库，按 Antigravity、Claude 和 Codex 三个平台分别维护。**各平台 skill 分别适配各自的工具、执行环境和工作流，不能直接跨平台混装指令文件；但项目数据产物（如 2D Style Pack、迭代运行控制状态、Nxtpath / Tripo 本机配置）可跨平台通用。** 同一能力需要支持多个平台时，分别保留并验证各自版本。
+个人 skill 仓库，按 Antigravity、Claude、Codex 和 DeepSeek Harness 四个平台分别维护。**各平台 skill 分别适配各自的工具、执行环境和工作流，不能直接跨平台混装指令文件；但项目数据产物（如 2D Style Pack、迭代运行控制状态、Nxtpath / Tripo 本机配置）可跨平台通用。** 同一能力需要支持多个平台时，分别保留并验证各自版本。
 
 ## 目录结构
 
@@ -36,20 +36,36 @@ agent-skills/
 │       ├── requirements-discovery/
 │       ├── seedance-video/
 │       └── tripo-model/
-└── claude/
+├── claude/
+│   ├── README.md
+│   ├── skills/
+│   │   ├── design-interrogator/
+│   │   ├── iterative-development/
+│   │   ├── minimax-video/
+│   │   ├── nxtpath-video/
+│   │   ├── product-design-interrogator/
+│   │   ├── requirements-discovery/
+│   │   ├── seedance-video/
+│   │   └── tripo-model/
+│   └── packages/
+│       ├── design-interrogator.zip
+│       ├── iterative-development.zip
+│       ├── minimax-video.zip
+│       ├── nxtpath-video.zip
+│       ├── product-design-interrogator.zip
+│       ├── requirements-discovery.zip
+│       ├── seedance-video.zip
+│       └── tripo-model.zip
+└── dsh/
     ├── README.md
-    ├── skills/
-    │   ├── design-interrogator/
-    │   ├── iterative-development/
-    │   ├── nxtpath-video/
-    │   ├── product-design-interrogator/
-    │   └── requirements-discovery/
-    └── packages/
-        ├── design-interrogator.zip
-        ├── iterative-development.zip
-        ├── nxtpath-video.zip
-        ├── product-design-interrogator.zip
-        └── requirements-discovery.zip
+    └── skills/
+        ├── design-interrogator/
+        ├── iterative-development/
+        ├── minimax-video/
+        ├── product-design-interrogator/
+        ├── requirements-discovery/
+        ├── seedance-video/
+        └── tripo-model/
 ```
 
 ## 路径与使用入口
@@ -60,13 +76,15 @@ agent-skills/
 | 查看、修改 Codex skill | [codex/skills/](codex/skills/) | 每个子目录是一份完整 skill，连同 references、scripts、agents 等文件一起使用 |
 | 安装、更新 Codex skill | [codex/README.md](codex/README.md) | 将选中的完整目录复制到 Codex 实际加载路径 |
 | 查看、修改 Claude skill | [claude/skills/](claude/skills/) | 修改对应 skill 的源码目录 |
+| 查看、修改与安装 DSH skill | [dsh/skills/](dsh/skills/) / [dsh/README.md](dsh/README.md) | 符号链接或复制完整目录到 `~/.dsh/skills/` 或项目 `.dsh/skills/`；不要把仅适配 DSH 的版本放进多 agent 共享的 `.agents/skills/` |
 | 安装、更新 Claude skill | [claude/packages/](claude/packages/) | 桌面版 / Cowork 上传 ZIP，Claude Code 安装完整源码目录；具体步骤见 [Claude 使用说明](claude/README.md) |
 
-本机仓库位于 `E:\Agent\agent-skills`，例如：
+本机仓库路径依设备而定（macOS 为 `~/Developer/Agent/agent-skills`，Windows 为 `E:\Agent\agent-skills`），例如：
 
-- Codex 自动迭代开发源码：`E:\Agent\agent-skills\codex\skills\iterative-development`。
-- Claude 设计审问者源码：`E:\Agent\agent-skills\claude\skills\design-interrogator`。
-- Claude 设计审问者上传包：`E:\Agent\agent-skills\claude\packages\design-interrogator.zip`。
+- Codex 自动迭代开发源码：`codex/skills/iterative-development`。
+- Claude 设计审问者源码：`claude/skills/design-interrogator`。
+- Claude 设计审问者上传包：`claude/packages/design-interrogator.zip`。
+- DSH 自动迭代开发源码：`dsh/skills/iterative-development`。
 
 仓库目录用于保存和版本管理，应用加载路径用于运行。克隆或拉取本仓库后，还需要按对应平台安装或更新；已安装的独立副本不会随 Git 拉取自动变化。不要把整个仓库或另一个平台的 `skills/` 目录作为安装内容。
 
@@ -80,14 +98,19 @@ Claude 版 [requirements-discovery](claude/skills/requirements-discovery/) 与 [
 
 [Codex 版 seedance-video](codex/skills/seedance-video/) 直连火山方舟或 BytePlus ModelArk，支持 Seedance 2.5 和 2.0 系列的文生视频、首尾帧、多模态参考和任务恢复。密钥按站点保存在本机 `~/.config/seedance/`。
 
+Claude Code 版 [minimax-video](claude/skills/minimax-video/)、[seedance-video](claude/skills/seedance-video/) 和 [tripo-model](claude/skills/tripo-model/) 的脚本、参考资料和离线测试与 Codex 版一致，SKILL.md 按 Claude Code 的 `${CLAUDE_SKILL_DIR}`、Bash 后台等待和抽帧审片方式改写。修改共享脚本时同步检查 Codex、DSH 与 Claude 三份副本。
+
+[DSH 版](dsh/README.md) 已收录 design-interrogator、product-design-interrogator、requirements-discovery、iterative-development、minimax-video、seedance-video 和 tripo-model。媒体与 3D skill 的 Python 客户端与 Codex 版同源，执行指令按 DSH 的工具与等待机制改写；DSH 版 iterative-development 的验收参考和 `run_control.py` 与其它平台共享，协作与调度部分改为使用 goal 自动续轮、subagent、后台 job 和 schedule。DSH 暂不移植依赖内置生图能力的 art 系列，Office 文档能力由 DSH 内置 skill 提供。
+
 ## 维护规则
 
 1. 先选择目标平台，只修改该平台的 skill；跨平台移植需适配并分别验证。
 2. 以 `<平台>/skills/<skill-name>/` 为源码，每个 skill 保留完整配套文件。
 3. Claude 源码改变后，重新生成 `claude/packages/<skill-name>.zip` 并更新上传版本；不要只修改安装包。
 4. Codex 源码改变后，更新已安装副本并在目标环境验证；按需保留该平台的 `agents/openai.yaml`。
-5. 新增或移除 skill 时同步更新目录索引及平台说明。
-6. 运行日志、测试工作区、账户配置和凭证留在仓库外。
+5. DSH 源码改变后，检查 `~/.dsh/skills/` 的软链是否仍指向本仓库；共享的验收参考或 `run_control.py` 有改动时，核对其它平台版本是否需要同步。
+6. 新增或移除 skill 时同步更新目录索引及平台说明。
+7. 运行日志、测试工作区、账户配置和凭证留在仓库外。
 
 ## 跨设备同步
 

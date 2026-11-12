@@ -11,10 +11,15 @@
 | requirements-discovery | 澄清模糊需求、审查 PRD 缺口，形成范围与验收标准 | [skills/requirements-discovery/](skills/requirements-discovery/) | [packages/requirements-discovery.zip](packages/requirements-discovery.zip) |
 | iterative-development | 按目标限时自动开发、独立验收和修复，达标收尾并交付人工复核 | [skills/iterative-development/](skills/iterative-development/) | [packages/iterative-development.zip](packages/iterative-development.zip) |
 | nxtpath-video | 哪都通 Seedance 2.5 图生视频与任务恢复，面向本机 Claude Code | [skills/nxtpath-video/](skills/nxtpath-video/) | [packages/nxtpath-video.zip](packages/nxtpath-video.zip) |
+| seedance-video | 火山方舟 / BytePlus 官方 Seedance 2.5 与 2.0 视频生成和任务恢复，面向本机 Claude Code | [skills/seedance-video/](skills/seedance-video/) | [packages/seedance-video.zip](packages/seedance-video.zip) |
+| minimax-video | MiniMax 官方 H3 视频生成，支持图片/视频/音频参考和任务恢复，面向本机 Claude Code | [skills/minimax-video/](skills/minimax-video/) | [packages/minimax-video.zip](packages/minimax-video.zip) |
+| tripo-model | Tripo 文字/图片生成三维模型、后处理与续查下载，默认 CN，面向本机 Claude Code | [skills/tripo-model/](skills/tripo-model/) | [packages/tripo-model.zip](packages/tripo-model.zip) |
 
 分析对象是产品或功能时优先使用 product-design-interrogator；其他方案、计划和设计使用 design-interrogator。尚未形成方案、需要澄清问题与需求时使用 requirements-discovery；该 skill 已针对 Claude Code 适配，并随包保留 references。需求明确后要让 Claude Code 自动开发、验收、修复直到达标时使用 iterative-development；它依赖 Claude Code 的子智能体、worktree 隔离和 Bash 执行能力，上传包仅作备份，不保证在桌面版 / Cowork 中完整运行。
 
 `nxtpath-video` 使用本机环境变量 `NXTPATH_API_KEY` 或私有的 `~/.config/nxtpath/env`，凭证不随 Skill 或 ZIP 分发。它面向可运行本地 Python 的 Claude Code；云端会话不会因安装 ZIP 而获得本机环境或文件。图片托管是可选的 R2 配置，使用有效 HTTPS 参考图时不依赖 R2。调用示例：`/nxtpath-video 用这张参考图制作 4 秒动作小样`。
+
+`seedance-video`、`minimax-video` 和 `tripo-model` 与 Codex 版共用 Python 客户端、参考资料和离线测试，SKILL.md 改为通过 `${CLAUDE_SKILL_DIR}` 定位脚本，在 Bash 后台等待任务或长时间生成，并抽帧审看视频。凭据分别读取本机 `~/.config/seedance/`、`~/.config/minimax/env` 和 `~/.config/tripo-skill/config.json`，不随 Skill 或 ZIP 分发；Claude Code 的 Bash 没有交互终端，配置密钥使用 `--gui` 隐藏输入框或用户自己的终端。Seedance 官方任务用 `seedance-video`，指定哪都通时用 `nxtpath-video`；Claude 未安装哪都通 MiniMax 版本。Tripo 的离线集成测试在设置了 `HTTPS_PROXY` 的 shell 中会绕过模拟接口，运行测试前先清除代理变量。
 
 本机路径示例：
 
